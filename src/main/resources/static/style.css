@@ -9,4 +9,16 @@ font-family: 'Noto Sans KR', sans-serif;
 }
 .intro_bg{
     background-image: url('intro.png');
+    height: 718px;
+    weight: 100%;
+
+}
+.header{
+    display: flex;
+    width: 1280px;
+    margin: auto;
+    background: red;
+}
+.nav{
+    display: flex;
 }
