@@ -1,0 +1,12 @@
+*{ </*html 요소 선택 */
+font-family: 'Noto Sans KR', sans-serif;
+    list-style: none; /* 모든 리스트에서 . 숨김 */
+    text-decoration: none; /* 색깔, 밑줄 없앰 */
+    border-collapse: collapse; /* 테이블의 선 붙이기 */
+    margin: 0px; /* 기본적으로 설정된 margin 값 없애기 */
+    padding: 0px; /*기본적으로 설정된 padding 값 없애기 */
+    color: #000; /*기본색 폰트색 검정색*/
+}
+.intro_bg{
+    background-image: url('intro.png');
+}
