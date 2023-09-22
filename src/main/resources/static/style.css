@@ -15,6 +15,7 @@ h1{
 .contents1{
     font-size: 20px;
     font-weight: lighter;
+    margin-bottom: 20px;
 }
 .contents1_bold{
     font-size: 18px;
@@ -148,7 +149,8 @@ h1{
 .more{
     width: 100px;
     height: 30px;
-    background: #2F7AF4;
+    background-color: #2F7AF4;
+    border: none;
     font-size: 12px;
     color: white;
     margin: 25px auto;
@@ -161,11 +163,16 @@ h1{
     height: 659px;
 }
 .main_text1 > h1{
-    padding-top: 50px;
+    padding-top: 30px;
     text-align: center;
 }
 .main_text1 > .contents1{
     text-align: center;
+    margin: 20px;
+    font-weight: bold;
+}
+.calendar_content{
+    margin: -10px;
 }
 .service{
     width: 1280px;
@@ -191,6 +198,9 @@ h1{
 .intro_text > h1,
 .intro_text > h4{
     color: #fff;
+}
+.calendar_screenshot{
+    text-align: center;
 }
 .service > .contents2{
     padding: 20px;
