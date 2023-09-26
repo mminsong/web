@@ -48,32 +48,21 @@ h1{
     margin: auto;
     height: 86px;
 }
-.search_Area{
-    weight: 300px;
+.search_Area > h2{
+    width: 400px;
     height: 40px;
     background: rgba(0,0,0,0.5);
     border-radius: 5px;
     margin-top: 24px;
+    color: white;
+    text-align: center;
 }
-.search_Area > form > input{
-    border: none;
-    width: 250px;
-    height: 40px;
-    background: rgba(0,0,0,0.0);
-    color:#fff;
-    padding-left:10px;
-}
-.search_Area > form > span{
-    width: 60px;
-    color: #fff;
-    font-weight: bold;
-    cursor : pointer;
-}
+
 .nav{
     display: flex;
     justify-content: flex-end; /*오른쪽 정렬*/
     line-height: 86px; /*높이*/
-    width: calc(1280px - 300px); /* calc: 자동 계산*/
+    width: calc(1280px - 400px); /* calc: 자동 계산*/
     color: #fff; /* 글자색 */
 }
 .nav > li {
@@ -101,7 +90,8 @@ h1{
     font-weight: bold;
     padding-top: 20px;
 }
-.main_text0{
+.main_text0,
+.main_text1{
     width: 100%;
     height: 500px;
     background: #f1f2f3;
@@ -212,7 +202,7 @@ h1{
 .main_text2{
     width: 100%;
     height: 418px;
-    background-image: url("contact.png");
+    background-image: url("자격증.png");
 }
 .main_text2 > ul{
     display: flex;
@@ -235,20 +225,11 @@ h1{
     margin: 16px auto;
 }
 footer{
-    display: flex;
     background: #1f1f1f;
-    color: #fff;
-}
-footer > div:first-child{
-    flex: 4; /* flex 합이 12 */
     text-align: center;
     color: #fff;
 }
-footer > div:last-child{
-    flex: 8;
-    color: #fff;
-}
-footer > div > h4{
+footer > h4{
     color: white;
 }
 .yellow{
