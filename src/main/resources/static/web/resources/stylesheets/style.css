@@ -7,10 +7,14 @@ font-family: 'Noto Sans KR', sans-serif;
     padding: 0px; /*기본적으로 설정된 padding 값 없애기 */
     color: #000; /*기본색 폰트색 검정색*/
     scroll-behavior: smooth;
+
 }
 h1{
     font-size: 48px;
     font-weight: 100;
+}
+a{
+    color: white;
 }
 .contents1{
     font-size: 20px;
@@ -71,10 +75,21 @@ h1{
 .nav > li > a{
     color: #fff; /* 글자색 */
 }
+.license{
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.kind{
+    color: white;
+}
 .amount{
     display: flex;
     width: 1280px;
-    backgrund: #fff;
+    background: #fff;
     margin: auto;
     justify-content: space-between;
 }
@@ -91,7 +106,8 @@ h1{
     padding-top: 20px;
 }
 .main_text0,
-.main_text1{
+.main_text1,
+.main_text2{
     width: 100%;
     height: 500px;
     background: #f1f2f3;
@@ -125,38 +141,48 @@ h1{
     margin-top: 18px;
 }
 .icons> li>.icon_img>.calendar{
-    width: 150px;
+    width: 10rem;
 }
 .icons> li>.icon_img>.blog{
-    width: 120px;
-    margin-bottom: 10px;
+    width: 10rem;
 }
-.icons .contents2{
-    width: 190px;
-    margin: auto;
-    letter-spacing: -1px;
+
+.array{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
 }
 .more{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100px;
     height: 30px;
     background-color: #2F7AF4;
     border: none;
     font-size: 12px;
     color: white;
-    margin: 25px auto;
-    line-height: 30px;
     cursor: pointer;
+    border-radius: 0.5rem;
+    margin-right: 0.5rem;
 }
 /*main_text1*/
 .main_text1{
     width: 100%;
     height: 659px;
 }
-.main_text1 > h1{
+.main_text2{
+    width: 100%;
+    height: 550px;
+}
+.main_text1 > h1,
+.main_text2 > h1{
     padding-top: 30px;
     text-align: center;
 }
-.main_text1 > .contents1{
+.main_text1 > .contents1,
+.main_text2 > .contents1{
     text-align: center;
     margin: 20px;
     font-weight: bold;
@@ -198,39 +224,18 @@ h1{
 .service > .contents2 > h2{
     margin-bottom: 27px;
 }
-/* main_text2 */
-.main_text2{
-    width: 100%;
-    height: 418px;
-    background-image: url("자격증.png");
+.contents1_bold,
+.contents2{
+    margin: 0.5rem;
 }
-.main_text2 > ul{
-    display: flex;
-    padding-top: 138px;
-}
-.main_text2 > ul > li{
-    flex: 1;
-    text-align: center;
-}
-.main_text2 > ul > li> div>h1,
-.main_text2 > ul > li> div{
-    color: #fff;
-}
-.more2{
-    width: 220px;
-    height: 40px;
-    border: 1px solid #fff;
-    line-height: 40px;
-    cursor: pointer;
-    margin: 16px auto;
-}
+
 footer{
     background: #1f1f1f;
     text-align: center;
-    color: #fff;
 }
-footer > h4{
+footer div {
     color: white;
+    font-weight: bold;
 }
 .yellow{
     color: #FFBB5C;

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>아이디 찾기</title>
+    <link rel="stylesheet" href="/user/resources/stylesheets/findid.css">
+    <script src="https://kit.fontawesome.com/7f0b80e413.js" crossorigin="anonymous"></script>
+</head>
+<script>
+    $("#findid").keypress(function (e){
+        if(e.keyCode ===13){
+            login();
+        }
+    });
+</script>
+<body>
+<div class="box">
+    <div class="title">
+        <div class="sub">
+            <i class="fa-solid fa-lock"></i>
+            <div class="text_findpasswd">아이디 찾기</div>
+        </div>
+        <div class="text">아이디를 찾고자하는 비밀번호와 전화번호를 입력해주세요.</div>
+    </div>
+    <form method="post" class="main" th:action="@{/user/id}">
+        <input class="id" id="password" name="password" type="password" placeholder="비밀번호">
+        <input class="number" id="number" name="phoneNumber" type="text" placeholder="전화번호">
+        <input class="next" onclick="findid()" type="submit" value="아이디 찾기">
+    </form>
+    <div class="last">
+        <div class="last_sub">
+            <div class="findid">비밀번호가 기억나지 않는다면?</div>
+            <div class="link1"><a th:href="@{/user/findpasswd}" target="_self">비밀번호 찾기</a></div>
+        </div>
+        <div class="link2"><a th:href="@{/user/login}" target="_self">로그인</a></div>
+    </div>
+</div>
+</body>
+</html>

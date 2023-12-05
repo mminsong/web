@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.web.mappers.IUserMapper">
+    <insert id="insertUser"
+            parameterType="com.example.web.entities.UserEntity">
+        INSERT INTO `test12`.`users`(`user_name`,`email`, `password`, `phone_number`,`birth`)
+        VALUES (#{userName}, #{email}, #{password}, #{phoneNumber},#{birth})
+    </insert>
+
+    <select id="selectUser"
+            parameterType="com.example.web.entities.UserEntity"
+            resultType="com.example.web.entities.UserEntity">
+        SELECT `index`        AS `index`,
+               `email`        AS `email`,
+               `password`     AS `password`,
+               `user_name`         AS `userName`,
+               `phone_number` AS `phoneNumber`,
+               `birth` AS `birth`
+        FROM `test12`.`users`
+        WHERE `email` = #{email} /*paramterType 사용한 이유*/
+          AND `password` = #{password}
+    </select>
+
+    <select id="selectPw"
+            parameterType="com.example.web.entities.UserEntity"
+            resultType="com.example.web.entities.UserEntity">
+        SELECT `index`        AS `index`,
+               `email`        AS `email`,
+               `password`     AS `password`,
+               `user_name`         AS `userName`,
+               `phone_number` AS `phoneNumber`,
+               `birth` AS `birth`
+        FROM `test12`.`users`
+        WHERE `email` = #{email} /*paramterType 사용한 이유*/
+          AND `phone_number` = #{phoneNumber}
+    </select>
+
+    <select id="selectId"
+            parameterType="com.example.web.entities.UserEntity"
+            resultType="com.example.web.entities.UserEntity">
+        SELECT `index`        AS `index`,
+               `email`        AS `email`,
+               `password`     AS `password`,
+               `user_name`         AS `userName`,
+               `phone_number` AS `phoneNumber`,
+               `birth` AS `birth`
+        FROM `test12`.`users`
+        WHERE `password` = #{password} /*paramterType 사용한 이유*/
+          AND `phone_number` = #{phoneNumber}
+    </select>
+</mapper>

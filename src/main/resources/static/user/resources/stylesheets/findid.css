@@ -1,0 +1,104 @@
+body{
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+input{
+    border:none;
+    background-color: unset;
+    outline: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.box{
+    width: 30rem;
+    height: 20rem;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: relative;
+}
+.title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sub{
+    width: 30rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+.text_findpasswd{
+    margin-left: 1rem;
+}
+.text{
+    font-weight: bold;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    height: 10rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+.yours{
+    margin-right: 1rem;
+}
+.passwd{
+    font-weight: bold;
+}
+.id,
+.number{
+    width: 20rem;
+    line-height: 2rem;
+    border: 0.0625rem solid #d2d0d0;
+    border-radius: 0.2rem;
+    margin-bottom: 0.7rem;
+}
+.id:hover,
+.number:hover{
+    border: 0.2rem solid #d2d0d0;
+}
+.next{
+    width: 20.5rem;
+    line-height: 2rem;
+    border: 0.0625rem solid #d2d0d0;
+    border-radius: 0.2rem;
+    background-color: #d2d0d0;
+}
+.next:hover,
+.link1:hover,
+.link2:hover{
+    font-weight: bold;
+}
+.last{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.last_sub{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.findid{
+    margin-right: 0.5rem;
+}
+.link2{
+    margin-top: 0.5rem;
+}

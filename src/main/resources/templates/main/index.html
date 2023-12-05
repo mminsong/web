@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>명함 목록</title>
+    <link rel="stylesheet" href="/main/resources/stylesheets/index.css"/>
+    <script src="https://kit.fontawesome.com/7f0b80e413.js" crossorigin="anonymous"></script>
+</head>
+<script>
+    $("#search").keypress(function (e){
+        if(e.keyCode ===13){
+            search();
+        }
+    });
+</script>
+<body>
+<div class="main">
+    <div class="logoutmain">
+        <div class="user" th:if="${session.loginVo1 != null}" th:text="${session.loginVo1.getUserName()+'님'}"></div>
+        <a class="logout" th:href="@{/user/login}">로그아웃</a>
+    </div>
+    <div class="addmain">
+        <div class="list">
+            <i class="fa-solid fa-list-ul"></i>
+            <div class="addtext">명함 목록</div>
+        </div>
+        <form class="fullmain" action="/main/find">
+            <select name="findSelect">
+                <option value="none">선택</option>
+                <option value="companyname">회사이름</option>
+                <option value="level">직책</option>
+                <option value="name">이름</option>
+                <option value="number">전화번호</option>
+                <option value="email">이메일</option>
+            </select>
+            <div class="findmain">
+                <input class="find" type="text" name="find" placeholder="검색해주세요.">
+                <input class="search" onclick="search()" type="submit" value="검색">
+            </div>
+        </form>
+        <form method="post">
+            <a th:href="@{/main/add}" class="addbtu"><i class="fa-solid fa-plus"></i></a>
+        </form>
+    </div>
+    <table>
+        <thead>
+        <tr class="addressmain">
+            <th>회사이름</th>
+            <th>직책</th>
+            <th>이름</th>
+            <th>전화번호</th>
+            <th>이메일</th>
+            <th>주소</th>
+            <th>관리</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="businessEntity : ${businessEntities}">
+            <td th:text="${businessEntity.getCompanyName()}"></td>
+            <td th:text="${businessEntity.getLevel()}"></td>
+            <td th:text="${businessEntity.getName()}"></td>
+            <td th:text="${businessEntity.getNum()}"></td>
+            <td th:text="${businessEntity.getEmail()}"></td>
+            <td th:text="${businessEntity.getAddress()}"></td>
+            <td>
+                <form>
+                    <a class="delete" th:href="@{/main/delete(index=${businessEntity.getIndex()})}">삭제</a>
+                    <a class="modi" th:href="@{/main/updatecard(index=${businessEntity.getIndex()})}">수정</a>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--    <div class="total" th:if="${id.equals('find2')}">-->
+    <!--        <a th:if="${userTableVo.getMinPage() < userTableVo.getRequestPage()}"-->
+    <!--           th:href="@{'/main/index/' + ${userTableVo.getMinPage()}}">&lt;&lt;</a>-->
+
+    <!--        <a th:if="${userTableVo.getMinPage() < userTableVo.getRequestPage()}"-->
+    <!--           th:href="@{'/main/index/' + ${userTableVo.getRequestPage() - 1}}">&lt;</a>-->
+
+    <!--        <a th:each="page: ${#numbers.sequence(userTableVo.getStartPage(), userTableVo.getRequestPage()-1)}"-->
+    <!--           th:href="@{'/main/index/' + ${page}}"-->
+    <!--           th:text="${page}"-->
+    <!--           th:if="${userTableVo.getRequestPage() > userTableVo.getMinPage()}"></a>-->
+
+    <!--        <a th:text="${userTableVo.getRequestPage()}"></a>-->
+
+    <!--        <a th:each="page: ${#numbers.sequence(userTableVo.getRequestPage() + 1, userTableVo.getEndPage())}"-->
+    <!--           th:href="@{'/main/index/' + ${page}}"-->
+    <!--           th:text="${page}"-->
+    <!--           th:if="${userTableVo.getRequestPage() < userTableVo.getMaxPage()}"></a>-->
+
+    <!--        <a th:if="${userTableVo.getMaxPage() > userTableVo.getRequestPage()}"-->
+    <!--           th:href="@{'/main/index/' + ${userTableVo.getRequestPage() + 1}}">&gt;</a>-->
+
+    <!--        <a th:if="${userTableVo.getMaxPage() > userTableVo.getRequestPage()}"-->
+    <!--           th:href="@{'/main/index/' + ${userTableVo.getMaxPage()}}">&gt;&gt;</a>-->
+    <!--    </div>-->
+
+    <!--    <div class="total" th:if="${id.equals('find')}">-->
+    <!--        <a th:if="${userTableVo.getMinPage() < userTableVo.getRequestPage()}"-->
+    <!--           th:href="@{'/main/find/' + ${userTableVo.getMinPage()}(findSelect= ${userTableVo.getFindSelect()},find=${userTableVo.getFind()})}">&lt;&lt;</a>-->
+
+    <!--        <a th:if="${userTableVo.getMinPage() < userTableVo.getRequestPage()}"-->
+    <!--           th:href="@{'/main/find/' + ${userTableVo.getRequestPage() - 1}(findSelect= ${userTableVo.getFindSelect()},find=${userTableVo.getFind()})}">&lt;</a>-->
+
+    <!--        <a th:each="page: ${#numbers.sequence(userTableVo.getStartPage(), userTableVo.getRequestPage()-1)}"-->
+    <!--           th:href="@{'/main/find/' + ${page}(findSelect= ${userTableVo.getFindSelect()},find=${userTableVo.getFind()})}"-->
+    <!--           th:text="${page}"-->
+    <!--           th:if="${userTableVo.getRequestPage() > userTableVo.getMinPage()}"></a>-->
+
+    <!--        <a th:text="${userTableVo.getRequestPage()}"></a>-->
+
+    <!--        <a th:each="page: ${#numbers.sequence(userTableVo.getRequestPage() + 1, userTableVo.getEndPage())}"-->
+    <!--           th:href="@{'/main/find/' + ${page}(findSelect= ${userTableVo.getFindSelect()},find=${userTableVo.getFind()})}"-->
+    <!--           th:text="${page}"-->
+    <!--           th:if="${userTableVo.getRequestPage() < userTableVo.getMaxPage()}"></a>-->
+
+    <!--        <a th:if="${userTableVo.getMaxPage() > userTableVo.getRequestPage()}"-->
+    <!--           th:href="@{'/main/find/' + ${userTableVo.getRequestPage() + 1}(findSelect= ${userTableVo.getFindSelect()},find=${userTableVo.getFind()})}">&gt;</a>-->
+
+    <!--        <a th:if="${userTableVo.getMaxPage() > userTableVo.getRequestPage()}"-->
+    <!--           th:href="@{'/main/find/' + ${userTableVo.getMaxPage()}(findSelect= ${userTableVo.getFindSelect()},find=${userTableVo.getFind()})}">&gt;&gt;</a>-->
+    <!--    </div>-->
+</div>
+</body>
+</html>

@@ -6,7 +6,7 @@
     <title>조민성의 포트폴리오</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
     <!--google font 에서 가져옴 -->
-    <link rel="stylesheet" type="text/css" href="/style.css"> <!--css파일과 연결-->
+    <link rel="stylesheet" type="text/css" href="/web/resources/stylesheets/style.css"> <!--css파일과 연결-->
     <style>
         pre {
             display: inline;
@@ -46,26 +46,33 @@
                 <h4 class="white1">포트폴리오</h4>
             </div>
         </div>
+        <div class="license">
+            <div class="kind">정보처리산업기사 </div>
+            <div class="kind">리눅스마스터 2급 </div>
+            <div class="kind">네트워크 관리사 2급 </div>
+            <div class="kind">컴퓨터활용능력 1급 </div>
+            <div class="kind">워드프로세서</div>
+        </div>
     </div>
     <!--intro end -->
     <div class="amount">
         <div>
-            <img src="/springboot.svg">
+            <img src="/img/springboot.svg">
         </div>
         <div>
-            <img src="/html.svg">
+            <img src="/img/html.svg">
         </div>
         <div>
-            <img src="/css.svg">
+            <img src="/img/css.svg">
         </div>
         <div>
-            <img src="/js.svg">
+            <img src="/img/js.svg">
         </div>
         <div>
-            <img src="/java.svg">
+            <img src="/img/java.svg">
         </div>
         <div>
-            <img src="/mysql.svg">
+            <img src="/img/mysql.svg">
         </div>
     </div>
     <!-- amount end -->
@@ -75,22 +82,26 @@
         <ul class="icons">
             <li>
                 <div class="icon_img">
-                    <img class="calendar" src="/calendar.svg">
+                    <img class="calendar" src="/img/calendar.svg">
                 </div>
                 <div class="contents1_bold">달력</div>
                 <div class="contents2">현재 날짜를 빨간 원으로 표시해줍니다.</div>
-
-                <button class="more" onclick="location.href='calendar.html'">Go Project</button>
-                <a href=#previewID><button class="more">Detail</button></a>
+                <div class="array">
+                    <button class="more" onclick="location.href='calendar.html'">Go Project</button>
+                    <a href=#previewID><button class="more">Detail</button></a>
+                </div>
             </li>
             <li>
                 <div class="icon_img">
-                    <img class="blog" src="/테트리스.png">
+                    <img class="blog" src="/img/board.svg">
                 </div>
-                <div class="contents1_bold">게임</div>
-                <div class="contents2">테트리스 게임을 할 수 있습니다.</div>
-                <div class="more">
-                    MORE
+                <div class="contents1_bold">명함 관리</div>
+                <div class="contents2">명함을 작성하고 자신이 작성한 명함을 수정, 삭제 가능합니다.</div>
+                <div class="array">
+<!--                    <button class="more" th:href="@{/user/login}">Go Project</button>-->
+                    <div class="more"><a th:href="@{/user/login}">Go Project
+                    </a></div>
+                    <a href=#previewID><button class="more">Detail</button></a>
                 </div>
             </li>
         </ul>
@@ -100,7 +111,7 @@
         <h1 class="preview" id="previewID">Project 1</h1>
         <div class="contents1">달력 만들기</div>
             <div class="calendar_screenshot">
-                <img class="calendar_img" src="/달력1.png" width="400px" height="400px">
+                <img class="calendar_img" src="/img/달력1.png" width="400px" height="400px">
                 <div class="calendar_content">
                     <br>html, css, Javascript를 이용하여 달력을 만들었습니다.
                     <br>현재 몇 월인지 달력 맨 처음에 표시되게 하고, 옆에 작은 글씨로 현재 년, 월, 일을 나타나게 했습니다.
@@ -109,39 +120,29 @@
             </div>
         </div>
     </div>
-<div class="main_text1">
+<div class="main_text2">
     <h1 class="preview" id="previewID1">Project 2</h1>
-    <div class="contents1">게임 만들기</div>
+    <div class="contents1">명함 관리 만들기</div>
     <div class="calendar_screenshot">
-        <img class="calendar_img" src="/달력1.png" width="400px" height="400px">
+        <img class="calendar_img" src="/img/명함.png" width="600px" height="250px">
         <div class="calendar_content">
-            <br>html, css, Javascript를 이용하여 달력을 만들었습니다.
-            <br>현재 몇 월인지 달력 맨 처음에 표시되게 하고, 옆에 작은 글씨로 현재 년, 월, 일을 나타나게 했습니다.
-            <br>빨간 동그라미를 이용하여 현재 날짜를 한 눈에 알아보기 쉽게 표시하였습니다.
+            <br>html, css, java, mariadb를 이용하여 명함 관리 페이지를 만들었습니다.
+            <br>회원가입, 로그인, 비밀번호 찾기, 아이디 찾기의 기능을 넣었습니다.
+            <br>명함을 추가, 삭제, 수정이 가능하며 작성한 명함을 토대로 항목별로 검색도 가능합니다.
         </div>
     </div>
 </div>
-</div>
-        <div class="main_text2" id="link_main_text2">
-            <ul>
-                <li>
-                    <div><h1>CONTACT</h1></div>
-                    <div>우리에게 파트너십을 신청하거나, 고객이 되어주세요</div>
-                    <div class="more2">
-                        더 알아보기
-                    </div>
-                </li>
-                <li></li>
-            </ul>
-        </div>
-        <footer>
-            <br>
-            <h4>이름 : 조민성</h4>
-            <h4>phone number : 010 - 7194 - 9391</h4>
-            <h4>Email : pamten@naver.com</h4>
-            <br>
-        </footer>
 
-</div>
+    <footer>
+        <br>
+        <div>이름 : 조민성</div>
+        <div>phone number : 010 - 7194 - 9391</div>
+        <div>Email : pamten@naver.com</div>
+        <br>
+        <div class="license" id="link_main_text2">
+
+        </div>
+    </footer>
+
 </body>
 </html>

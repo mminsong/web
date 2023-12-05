@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.web.mappers.IMainMapper">
+    <insert id="insertBusiness"
+            parameterType="com.example.web.entities.BusinessEntity">
+        INSERT INTO `test12`.`businesscard`(`user_name`, `company_name`, `name`, `level`, `num`, `email`, `address`,
+                                            `user_id`)
+        VALUES (#{userName}, #{companyName}, #{name}, #{level}, #{num}, #{email}, #{address}, #{userId})
+    </insert>
+
+
+    <select id="selectBusiness"
+            resultType="com.example.web.entities.BusinessEntity">
+        SELECT `index`        AS `index`,
+               `user_name`    AS `userName`,
+               `company_name` AS `companyName`,
+               `name`         AS `name`,
+               `level`        AS `level`,
+               `num`          AS `num`,
+               `email`        AS `email`,
+               `address`      AS `address`
+        FROM `test12`.`businesscard`
+        WHERE `user_id` = #{index}
+    </select>
+
+    <delete id="deleteUser">
+        DELETE
+        FROM `test12`.`businesscard`
+        WHERE `index` = #{index}
+    </delete>
+
+    <update id="takeCard"
+            parameterType="com.example.web.entities.BusinessEntity">
+        UPDATE `test12`.`businesscard`
+        SET `user_name`=#{userName},
+            `company_name` = #{companyName},
+            `name` = #{name},
+            `level` = #{level},
+            `num` = #{num},
+            `email` = #{email},
+            `address` = #{address}
+        WHERE `index` = #{index}
+    </update>
+
+    <select id="updateCard"
+            parameterType="com.example.web.entities.BusinessEntity">
+        SELECT `index`        AS `index`,
+               `company_name` AS `companyName`,
+               `user_name`    AS `userName`,
+               `name`         AS `name`,
+               `level`        AS `level`,
+               `num`          AS `num`,
+               `email`        AS `email`,
+               `address`      AS `address`
+        FROM `test12`.`businesscard`
+        WHERE `index` = #{index}
+    </select>
+
+    <select id="selectfind"
+            resultType="com.example.web.entities.BusinessEntity">
+        SELECT `index` AS `index`,
+        `company_name` AS `companyName`,
+        `user_name` AS `userName`,
+        `name` AS `name`,
+        `level` AS `level`,
+        `num` AS `num`,
+        `email` AS `email`,
+        `address` AS `address`,
+        `user_id` AS `userId`
+        FROM `test12`.`businesscard` AS `b`
+        WHERE
+        <if test='findSelect.equals("companyname")'>
+            REPLACE(`b`.company_name,'',' ') LIKE CONCAT('%',#{find},'%')
+        </if>
+        <if test='findSelect.equals("level")'>
+            REPLACE(`b`.`level`,'',' ') LIKE CONCAT('%',#{find},'%')
+        </if>
+        <if test='findSelect.equals("name")'>
+            REPLACE(`b`.`name`,'',' ') LIKE CONCAT('%',#{find},'%')
+        </if>
+        <if test='findSelect.equals("number")'>
+            REPLACE(`b`.`number`,'',' ') LIKE CONCAT('%',#{find},'%')
+        </if>
+        <if test='findSelect.equals("email")'>
+            REPLACE(`b`.`email`,'',' ') LIKE CONCAT('%',#{find},'%')
+        </if>
+        ORDER BY `index` DESC
+    </select>
+    <select id="findCount">
+        SELECT COUNT(1)
+        FROM `test12`.`businesscard` AS `b`
+        WHERE
+        <if test='findSelect.equals("companyname")'>
+            REPLACE(`b`.company_name,'',' ') LIKE CONCAT('%',#{find},'%')
+        </if>
+        <if test='findSelect.equals("level")'>
+            REPLACE(`b`.`level`,'',' ') LIKE CONCAT('%',#{find},'%')
+        </if>
+        <if test='findSelect.equals("name")'>
+            REPLACE(`b`.`name`,'',' ') LIKE CONCAT('%',#{find},'%')
+        </if>
+        <if test='findSelect.equals("number")'>
+            REPLACE(`b`.`number`,'',' ') LIKE CONCAT('%',#{find},'%')
+        </if>
+        <if test='findSelect.equals("email")'>
+            REPLACE(`b`.`email`,'',' ') LIKE CONCAT('%',#{find},'%')
+        </if>
+    </select>
+    <select id="totalCount">
+        SELECT COUNT(1)
+        FROM `test12`.`businesscard`
+    </select>
+    <select id="selectUserTable"
+            resultType="com.example.web.entities.BusinessEntity">
+        SELECT `index` AS `index`,
+               `company_name` AS `companyName`,
+               `user_name` AS `userName`,
+               `name` AS `name`,
+               `level` AS `level`,
+               `num` AS `num`,
+               `email` AS `email`,
+               `address` AS `address`,
+               `user_id` AS `userId`
+        FROM `test12`.`businesscard` AS `b`
+        ORDER BY `index` DESC
+            LIMIT #{limit} OFFSET #{offset}
+    </select>
+</mapper>
